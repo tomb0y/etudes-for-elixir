@@ -29,6 +29,8 @@ defmodule Etudes.Mixfile do
   #
   # Type "mix help deps" for more examples and options
   defp deps do
-    []
+    [
+      {:dogma, "~> 0.1", only: :dev}
+    ]
   end
 end
