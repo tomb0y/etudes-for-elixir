@@ -12,6 +12,9 @@ defmodule Etudes.Geom do
   def area(:ellipse, major_radius, minor_radius) when major_radius >= 0 and minor_radius >= 0 do
     major_radius * minor_radius * :math.pi()
   end
+  def area(shape, _, _) when not shape in [:rectangle, :triangle, :ellipse] do
+    0
+  end
 
   @spec rectangle_area(number(), number()) :: number()
   defp rectangle_area(rectangle_length, rectangle_width) do

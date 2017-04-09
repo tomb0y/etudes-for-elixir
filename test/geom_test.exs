@@ -71,4 +71,10 @@ defmodule GeomTest do
       Etudes.Geom.area(:ellipse, 1, -1)
     end
   end
+
+  test "area of an unknown shape with whatever parameters" do
+    assert Etudes.Geom.area(:pentagon, 1, 1) == 0
+    assert Etudes.Geom.area(:circle, -1, 1) == 0
+    assert Etudes.Geom.area(:polygon, 1, -1) == 0
+  end
 end
