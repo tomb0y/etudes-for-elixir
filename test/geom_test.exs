@@ -28,4 +28,11 @@ defmodule GeomTest do
     assert Etudes.Geom.area(:triangle, 4, 1.5) == 3
     assert Etudes.Geom.area(:triangle, 1.2, 1.2) == 0.72
   end
+
+  test "area of an ellipse | yields the area of an ellipse based on it major and minor radiuses" do
+    assert Etudes.Geom.area(:ellipse, 2, 4) == 25.132741228718345
+    assert Etudes.Geom.area(:ellipse, 12, 7) == 263.89378290154264
+    assert Etudes.Geom.area(:ellipse, 4, 1.5) == 18.84955592153876
+    assert Etudes.Geom.area(:ellipse, 1.2, 1.2) == 4.523893421169302
+  end
 end

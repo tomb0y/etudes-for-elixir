@@ -9,6 +9,9 @@ defmodule Etudes.Geom do
   def area(:triangle, triangle_base, triangle_height) do
     triangle_base * triangle_height / 2
   end
+  def area(:ellipse, major_radius, minor_radius) do
+    major_radius * minor_radius * :math.pi()
+  end
 
   @spec rectangle_area(number(), number()) :: number()
   defp rectangle_area(rectangle_length, rectangle_width) do
