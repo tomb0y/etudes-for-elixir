@@ -3,21 +3,14 @@ defmodule Etudes.Geom do
 
   @spec area(atom(), number(), number()) :: number()
   def area(shape, dimension_a \\ 1, dimension_b \\ 1)
-  def area(:rectangle, rectangle_length, rectangle_width) when rectangle_length >= 0 and rectangle_width >= 0 do
-    rectangle_area(rectangle_length, rectangle_width)
-  end
-  def area(:triangle, triangle_base, triangle_height) when triangle_base >= 0 and triangle_height >= 0 do
-    triangle_base * triangle_height / 2
-  end
-  def area(:ellipse, major_radius, minor_radius) when major_radius >= 0 and minor_radius >= 0 do
-    major_radius * minor_radius * :math.pi()
-  end
   def area(shape, _, _) when not shape in [:rectangle, :triangle, :ellipse] do
     0
   end
-
-  @spec rectangle_area(number(), number()) :: number()
-  defp rectangle_area(rectangle_length, rectangle_width) do
-    rectangle_length * rectangle_width
+  def area(shape, dimension_a, dimension_b) when dimension_a >= 0 and dimension_b >= 0 do
+    case shape do
+      :rectangle -> dimension_a * dimension_b
+      :triangle -> dimension_a * dimension_b / 2
+      :ellipse -> dimension_a * dimension_b * :math.pi()
+    end
   end
 end
