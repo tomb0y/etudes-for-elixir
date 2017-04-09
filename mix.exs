@@ -8,6 +8,7 @@ defmodule Etudes.Mixfile do
      build_embedded: Mix.env == :prod,
      start_permanent: Mix.env == :prod,
      preferred_cli_env: preferred_cli_env(),
+     dialyzer: [ flags: ["-Wunmatched_returns", :error_handling, :race_conditions, :underspecs]],
      deps: deps()]
   end
 
@@ -18,7 +19,8 @@ defmodule Etudes.Mixfile do
 
   defp deps do
     [
-      {:dogma, "~> 0.1", only: [:dev, :test]}
+      {:dogma, "~> 0.1", only: [:dev, :test]},
+      {:dialyxir, "~> 0.5", only: [:dev], runtime: false}
     ]
   end
 
