@@ -21,4 +21,11 @@ defmodule GeomTest do
   test "area of a rectangle | rectangle_length has the default value of 1" do
     assert Etudes.Geom.area(:rectangle) == 1
   end
+
+  test "area of a triangle | yields the area of a triangle based on it's base and height" do
+    assert Etudes.Geom.area(:triangle, 3, 5) == 7.5
+    assert Etudes.Geom.area(:triangle, 12, 7) == 42
+    assert Etudes.Geom.area(:triangle, 4, 1.5) == 3
+    assert Etudes.Geom.area(:triangle, 1.2, 1.2) == 0.72
+  end
 end

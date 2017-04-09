@@ -2,8 +2,12 @@ defmodule Etudes.Geom do
   @moduledoc false
 
   @spec area(atom(), number(), number()) :: number()
-  def area(:rectangle, rectangle_length \\ 1, rectangle_width \\ 1) do
+  def area(shape, dimension_a \\ 1, dimension_b \\ 1)
+  def area(:rectangle, rectangle_length, rectangle_width) do
     rectangle_area(rectangle_length, rectangle_width)
+  end
+  def area(:triangle, triangle_base, triangle_height) do
+    triangle_base * triangle_height / 2
   end
 
   @spec rectangle_area(number(), number()) :: number()
