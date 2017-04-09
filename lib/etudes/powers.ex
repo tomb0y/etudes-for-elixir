@@ -13,4 +13,18 @@ defmodule Etudes.Powers do
   @spec raise(number(), integer(), number()) :: number()
   defp raise(_x, n, acc) when n == 0, do: acc
   defp raise(x, n, acc) when n > 0, do: raise(x, n - 1, x * acc)
+
+  @spec nth_root(number(), integer()) :: number()
+  def nth_root(x, n) when n == 1, do: x
+  def nth_root(x, n) when n > 1, do: nth_root(x, n, x / 2)
+
+  @spec nth_root(number(), integer(), number()) :: number()
+  defp nth_root(x, n, a) do
+    f = raise(a, n) - x
+    f_prime = n * raise(a, n - 1)
+    next_a = a - f / f_prime
+    change = abs(next_a - a)
+
+    if change < 0.000000001, do: next_a, else: nth_root(x, n, next_a)
+  end
 end
