@@ -41,6 +41,18 @@ defmodule GeomTest do
     assert Etudes.Geom.area(:triangle, 1.2, 1.2) == 0.72
   end
 
+  test "area of a triangle | only accepts non-negative triangle_base" do
+    assert_raise FunctionClauseError, fn ->
+      Etudes.Geom.area(:triangle, -1, 1)
+    end
+  end
+
+  test "area of a triangle | only accepts non-negative triangle_height" do
+    assert_raise FunctionClauseError, fn ->
+      Etudes.Geom.area(:triangle, 1, -1)
+    end
+  end
+
   test "area of an ellipse | yields the area of an ellipse based on it major and minor radiuses" do
     assert Etudes.Geom.area(:ellipse, 2, 4) == 25.132741228718345
     assert Etudes.Geom.area(:ellipse, 12, 7) == 263.89378290154264

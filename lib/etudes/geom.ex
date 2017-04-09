@@ -6,7 +6,7 @@ defmodule Etudes.Geom do
   def area(:rectangle, rectangle_length, rectangle_width) when rectangle_length >= 0 and rectangle_width >= 0 do
     rectangle_area(rectangle_length, rectangle_width)
   end
-  def area(:triangle, triangle_base, triangle_height) do
+  def area(:triangle, triangle_base, triangle_height) when triangle_base >= 0 and triangle_height >= 0 do
     triangle_base * triangle_height / 2
   end
   def area(:ellipse, major_radius, minor_radius) do
