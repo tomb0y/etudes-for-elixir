@@ -9,7 +9,7 @@ defmodule Etudes.Geom do
   def area(:triangle, triangle_base, triangle_height) when triangle_base >= 0 and triangle_height >= 0 do
     triangle_base * triangle_height / 2
   end
-  def area(:ellipse, major_radius, minor_radius) do
+  def area(:ellipse, major_radius, minor_radius) when major_radius >= 0 and minor_radius >= 0 do
     major_radius * minor_radius * :math.pi()
   end
 

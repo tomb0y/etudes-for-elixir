@@ -59,4 +59,16 @@ defmodule GeomTest do
     assert Etudes.Geom.area(:ellipse, 4, 1.5) == 18.84955592153876
     assert Etudes.Geom.area(:ellipse, 1.2, 1.2) == 4.523893421169302
   end
+
+  test "area of an ellipse | only accepts non-negative major_radius" do
+    assert_raise FunctionClauseError, fn ->
+      Etudes.Geom.area(:ellipse, -1, 1)
+    end
+  end
+
+  test "area of an ellipse | only accepts non-negative minor_radius" do
+    assert_raise FunctionClauseError, fn ->
+      Etudes.Geom.area(:ellipse, 1, -1)
+    end
+  end
 end
