@@ -3,7 +3,7 @@ defmodule Etudes.Geom do
 
   @spec area(atom(), number(), number()) :: number()
   def area(shape, dimension_a \\ 1, dimension_b \\ 1)
-  def area(:rectangle, rectangle_length, rectangle_width) do
+  def area(:rectangle, rectangle_length, rectangle_width) when rectangle_length >= 0 and rectangle_width >= 0 do
     rectangle_area(rectangle_length, rectangle_width)
   end
   def area(:triangle, triangle_base, triangle_height) do

@@ -22,6 +22,18 @@ defmodule GeomTest do
     assert Etudes.Geom.area(:rectangle) == 1
   end
 
+  test "area of a rectangle | only accepts non-negative rectangle_length" do
+    assert_raise FunctionClauseError, fn ->
+      Etudes.Geom.area(:rectangle, -1, 1)
+    end
+  end
+
+  test "area of a rectangle | only accepts non-negative rectangle_width" do
+    assert_raise FunctionClauseError, fn ->
+      Etudes.Geom.area(:rectangle, 1, -1)
+    end
+  end
+
   test "area of a triangle | yields the area of a triangle based on it's base and height" do
     assert Etudes.Geom.area(:triangle, 3, 5) == 7.5
     assert Etudes.Geom.area(:triangle, 12, 7) == 42
