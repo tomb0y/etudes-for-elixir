@@ -9,6 +9,6 @@ defmodule Mix.Tasks.Ci do
     Mix.Tasks.Dogma.run([])
 
     Mix.shell.info "\e[35mRunning tests:\e[0m"
-    Mix.Tasks.Test.run([])
+    Mix.Tasks.Test.run(["--trace"])
   end
 end
