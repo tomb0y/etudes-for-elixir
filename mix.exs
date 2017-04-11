@@ -19,12 +19,13 @@ defmodule Etudes.Mixfile do
 
   defp deps do
     [
+      {:espec, github: "antonmi/espec", only: :test},
       {:dogma, "~> 0.1", only: [:dev, :test]},
       {:dialyxir, "~> 0.5", only: [:dev], runtime: false}
     ]
   end
 
   defp preferred_cli_env do
-    ["ci": :test]
+    [ci: :test, espec: :test]
   end
 end
